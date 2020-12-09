@@ -24,12 +24,15 @@ namespace Xlfz.Web
             Configuration = configuration;
         }
         public IConfiguration Configuration { get; set; }
+
+
+        //ฎeพน
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<XlfzContext>(options=>{ 
-                    options.UseMySQL(Configuration.GetConnectionString("LocalDB"));
-                });
+            services.AddDbContext<XlfzContext>(options=>{
+                options.UseMySQL(Configuration.GetConnectionString("LocalDB"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

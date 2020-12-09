@@ -14,6 +14,7 @@ namespace Xlfz.Data
         {
 
         }
+        //直接设置数据库链接
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    base.OnConfiguring(optionsBuilder);
@@ -28,7 +29,7 @@ namespace Xlfz.Data
                 x.PlayerId,
                 x.GameId
             });
-            ////设置1对1的主体
+            ////设置1对1关系  的主体           1个play   关联1个resume  带着外键resume
             modelBuilder.Entity<Resume>().HasOne(x => x.Player).WithOne(x => x.Resume).HasForeignKey<Resume>();
         }
         public DbSet<League> League { get; set; }
